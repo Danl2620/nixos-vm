@@ -9,13 +9,13 @@ A nix flake that provides a dev shell with QEMU and helper commands for running 
 nix develop
 
 # Create a 20G virtual disk
-create-disk
+vm.sh create-disk
 
 # Download the NixOS 24.11 minimal ISO
-fetch-iso
+vm.sh fetch-iso
 
 # Boot the installer (console mode)
-boot-installer
+vm.sh boot-installer
 ```
 
 ## Installing NixOS
@@ -62,7 +62,7 @@ Once booted into the installer:
 
 ```bash
 nix develop
-boot-vm
+vm.sh boot-vm
 ```
 
 - SSH: `ssh -p 2222 root@localhost`
@@ -70,7 +70,7 @@ boot-vm
 
 ## VM Settings
 
-Defaults configured in `flake.nix`:
+Defaults configured in `vm.sh`:
 
 | Setting   | Value |
 |-----------|-------|
