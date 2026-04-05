@@ -1,5 +1,5 @@
 ssh_port := "2223"
-ssh_user := "nixos"
+ssh_user := "danl"
 
 # List available tasks
 default:
