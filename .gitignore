@@ -1,3 +1,4 @@
 
 nixos-minimal.iso
 nixos-vm.qcow2
+.pre-commit-config.yaml
