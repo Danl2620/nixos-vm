@@ -37,6 +37,7 @@
 
       devShells.${system}.default = pkgs.mkShell {
         packages = with pkgs; [
+          just
           qemu
         ];
 
