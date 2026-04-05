@@ -51,6 +51,7 @@ boot-installer() {
 		-boot d \
 		-drive "file=$VM_DISK,format=qcow2" \
 		-nic "user,hostfwd=tcp::${SSH_PORT}-:22" \
+		-virtfs "local,path=.,mount_tag=nixos-config,security_model=mapped-xattr,id=nixos-config" \
 		-display cocoa
 }
 
@@ -68,6 +69,7 @@ boot-vm() {
 		-smp "$VM_CPUS" \
 		-drive "file=$VM_DISK,format=qcow2" \
 		-nic "user,hostfwd=tcp::${SSH_PORT}-:22" \
+		-virtfs "local,path=.,mount_tag=nixos-config,security_model=mapped-xattr,id=nixos-config" \
 		-nographic
 }
 

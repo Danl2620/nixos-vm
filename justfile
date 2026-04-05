@@ -17,6 +17,10 @@ trust-host-key:
 forget-host-key:
     ssh-keygen -R "[localhost]:{{ssh_port}}"
 
+# Boot the installed NixOS VM
+boot-vm:
+    ./vm.sh boot-vm
+
 # Kill all running QEMU processes
 kill-vm:
     pkill qemu-system-x86_64 || true
@@ -24,6 +28,14 @@ kill-vm:
 # Format nix files
 fmt:
     nix fmt
+
+# Rebuild NixOS on the VM from the shared flake config
+rebuild:
+    ssh -p {{ssh_port}} {{ssh_user}}@localhost "sudo nixos-rebuild switch --flake /mnt/nixos-config#vm"
+
+# Copy hardware-configuration.nix from VM to local repo
+fetch-hw-config:
+    scp -P {{ssh_port}} {{ssh_user}}@localhost:/etc/nixos/hardware-configuration.nix nixos/hardware-configuration.nix
 
 # Run flake checks
 check:
