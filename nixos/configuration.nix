@@ -10,6 +10,7 @@
     ./modules/serial-console.nix
     ./modules/users.nix
     ./modules/ssh.nix
+    ./modules/packages.nix
   ];
 
   boot.loader.grub.device = "/dev/sda";
